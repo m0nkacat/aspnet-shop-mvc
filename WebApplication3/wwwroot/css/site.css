@@ -1,0 +1,159 @@
+:root {
+    --pink: #ff69b4;
+    --light-pink: #ffe4f2;
+    --dark-pink: #d44b8c;
+}
+
+body {
+    background-color: #fff0f5;
+}
+
+.navbar {
+    background-color: var(--light-pink) !important;
+    box-shadow: 0 2px 10px rgba(255, 105, 180, 0.2);
+}
+
+.navbar-brand, .nav-link {
+    color: var(--dark-pink) !important;
+}
+
+    .nav-link:hover {
+        color: var(--pink) !important;
+        background-color: rgba(255, 105, 180, 0.1);
+        border-radius: 5px;
+    }
+
+.btn-pink {
+    background-color: var(--pink);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+    .btn-pink:hover {
+        background-color: var(--dark-pink);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
+    }
+
+.table {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+    .table thead {
+        background-color: var(--pink);
+        color: white;
+    }
+
+    .table tbody tr:hover {
+        background-color: var(--light-pink);
+    }
+
+h1, h2, h3 {
+    color: var(--dark-pink);
+}
+
+.footer {
+    background-color: var(--light-pink);
+    color: var(--dark-pink);
+    border-top: 1px solid var(--pink) !important;
+}
+
+.btn-outline-secondary {
+    border-color: var(--pink);
+    color: var(--pink);
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--pink);
+    color: white;
+}
+
+.card {
+    transition: transform 0.2s;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card:hover {
+    ransform: translateY(-5px);
+}
+
+.card-img-top {
+    object-fit: cover;
+}
+
+.btn-pink {
+    background-color: #ff69b4;
+    color: white;
+}
+
+    .btn-pink:hover {
+        background-color: #ff1493;
+    }
+
+
+.btn-primary,
+.btn-secondary,
+.btn-success,
+.btn-info,
+.btn-default {
+    background-color: var(--pink) !important;
+    border-color: var(--pink) !important;
+    color: white !important;
+    border-radius: 20px;
+    padding: 8px 16px;
+    transition: all 0.3s;
+}
+
+    .btn-primary:hover,
+    .btn-secondary:hover,
+    .btn-success:hover,
+    .btn-info:hover,
+    .btn-default:hover {
+        background-color: var(--dark-pink) !important;
+        border-color: var(--dark-pink) !important;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(255, 105, 180, 0.4);
+    }
+
+
+.btn-danger {
+    background-color: #e84393 !important;
+    border-color: #e84393 !important;
+    color: white !important;
+    border-radius: 20px;
+    padding: 8px 16px;
+}
+
+    .btn-danger:hover {
+        background-color: #c0398b !important;
+    }
+
+
+table a {
+    color: var(--dark-pink);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+    table a:hover {
+        color: var(--pink);
+        text-decoration: underline;
+    }
+
+
+.form-control, .form-select {
+    border: 1px solid var(--pink);
+    border-radius: 10px;
+}
+
+    .form-control:focus, .form-select:focus {
+        border-color: var(--dark-pink);
+        box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.25);
+    }

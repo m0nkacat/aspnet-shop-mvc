@@ -1,0 +1,16 @@
+﻿@model Cart
+
+@{
+    ViewData["Title"] = "Удаление корзины";
+}
+
+<h1>Удалить корзину</h1>
+
+<h3>Вы уверены, что хотите удалить корзину №@Model.CartId?</h3>
+<div>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="CartId" />
+        <input type="submit" value="Удалить" class="btn btn-danger" /> |
+        <a asp-action="Index">Вернуться к списку</a>
+    </form>
+</div>

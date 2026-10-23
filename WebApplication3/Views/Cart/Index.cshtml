@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WebApplication3.Models.CartItem>
+@{
+    ViewData["Title"] = "Корзина";
+    decimal totalSum = 0;
+}
+
+<h1>Корзина</h1>
+
+@if (!Model.Any())
+{
+    <p>Корзина пуста</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Изображение</th>
+                <th>Товар</th>
+                <th>Количество</th>
+                <th>Цена</th>
+                <th>Сумма</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var sum = (item.Product?.Price ?? 0) * (item.Quantity ?? 0);
+                totalSum += sum;
+                <tr>
+                    <td>
+                        @if (!string.IsNullOrEmpty(item.Product?.Image))
+                        {
+                            <img src="@item.Product.Image" style="width: 50px; height: 50px; object-fit: cover;" />
+                        }
+                        else
+                        {
+                            <span>Нет фото</span>
+                        }
+                    </td>
+                    <td>@item.Product?.ProductName</td>
+                    <td>
+                        <a asp-action="Decrease" asp-route-id="@item.CartItemId" class="btn btn-outline-secondary btn-sm">–</a>
+                        @item.Quantity
+                        <a asp-action="Increase" asp-route-id="@item.CartItemId" class="btn btn-outline-secondary btn-sm">+</a>
+                    </td>
+                    <td>@item.Product?.Price.ToString("C")</td>
+                    <td>@sum.ToString("C")</td>
+                    <td>
+                        <a asp-action="Remove" asp-route-id="@item.CartItemId" class="btn btn-pink btn-sm">Удалить</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th colspan="4" class="text-right">Итого:</th>
+                <th>@totalSum.ToString("C")</th>
+                <th></th>
+            </tr>
+        </tfoot>
+    </table>
+    <form asp-action="Order" method="post">
+        <button type="submit" class="btn btn-pink mt-3">Оформить заказ</button>
+    </form>
+}

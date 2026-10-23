@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Ошибка";
+    var code = ViewBag.Code ?? 500;
+}
+
+<div class="text-center" style="padding: 60px 20px;">
+    <div style="font-size: 120px; font-weight: bold; color: #ff69b4; line-height: 1;">@code</div>
+    <h1 style="color: #d44b8c;">Что-то пошло не так</h1>
+    <p class="lead" style="color: #d44b8c;">При обработке запроса произошла ошибка.</p>
+    <div class="mt-4">
+        <a asp-controller="Home" asp-action="Index" class="btn btn-pink">Вернуться на главную</a>
+    </div>
+</div>

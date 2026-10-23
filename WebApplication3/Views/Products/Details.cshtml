@@ -1,0 +1,28 @@
+﻿@model WebApplication3.Models.Product
+
+@{
+    ViewData["Title"] = "Подробности";
+}
+
+<h1>Подробности о товаре</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Название</dt>
+        <dd class="col-sm-10">@Model.ProductName</dd>
+
+        <dt class="col-sm-2">Цена</dt>
+        <dd class="col-sm-10">@Model.Price.ToString()</dd>
+
+        <dt class="col-sm-2">Категория</dt>
+        <dd class="col-sm-10">@(Model.Category?.CategoryName ?? "—")</dd>
+
+        <dt class="col-sm-2">Описание</dt>
+        <dd class="col-sm-10">@(Model.Description ?? "—")</dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ProductId" class="btn btn-pink">Редактировать</a> |
+    <a asp-action="Index" class="btn btn-secondary">Вернуться к списку</a>
+</div>

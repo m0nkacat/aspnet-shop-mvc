@@ -1,0 +1,10 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+packages/
+appsettings.*.local.json
+# загружаемые картинки товаров
+WebApplication3/wwwroot/images/products/*
+!WebApplication3/wwwroot/images/products/.gitkeep

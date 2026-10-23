@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WebApplication3.Models.Product>
+@{
+    ViewData["Title"] = "Каталог товаров";
+}
+
+<h1>Каталог товаров</h1>
+
+<form method="get" asp-action="Index" class="row g-3 mb-4">
+    <div class="col-md-4">
+        <input type="text" name="searchString" class="form-control" placeholder="Поиск по названию" value="@ViewBag.SearchString" />
+    </div>
+    <div class="col-md-3">
+        <select name="categoryId" class="form-select" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "CategoryName", ViewBag.CategoryId))">
+            <option value="">Все категории</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <select name="sortOrder" class="form-select">
+            <option value="">По названию (А-Я)</option>
+            <option value="name_desc">По названию (Я-А)</option>
+            <option value="price_asc">Цена: по возрастанию</option>
+            <option value="price_desc">Цена: по убыванию</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <button type="submit" class="btn btn-pink w-100">Применить</button>
+    </div>
+</form>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card h-100">
+                @if (!string.IsNullOrEmpty(item.Image))
+                {
+                    <img src="@item.Image" class="card-img-top" alt="@item.ProductName" style="height: 200px; object-fit: cover;">
+                }
+                else
+                {
+                    <div class="card-img-top bg-light text-center py-5">Нет фото</div>
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@item.ProductName</h5>
+                    <p class="card-text">Цена: @item.Price.ToString("C")</p>
+                    <p class="card-text">Категория: @item.Category?.CategoryName</p>
+                </div>
+                <div class="card-footer">
+                    <a asp-controller="Cart" asp-action="Add" asp-route-id="@item.ProductId" class="btn btn-pink w-100">В корзину</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<nav>
+    <ul class="pagination justify-content-center">
+        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+        {
+            <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                <a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-searchString="@ViewBag.SearchString" asp-route-categoryId="@ViewBag.CategoryId" asp-route-sortOrder="@ViewBag.SortOrder">@i</a>
+            </li>
+        }
+    </ul>
+</nav>
