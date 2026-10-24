@@ -4,6 +4,14 @@
 
 `C#` `.NET 8` `ASP.NET Core MVC` `EF Core 9` `SQL Server` `BCrypt` `Bootstrap`
 
+| Каталог · *Catalog* | Корзина · *Cart* |
+|---|---|
+| ![Каталог](screenshots/catalog.png) | ![Корзина](screenshots/cart.png) |
+| **Админка: товары · *Admin: products*** | |
+| ![Админка](screenshots/admin-products.png) | |
+
+<sub>Скриншоты сделаны на демо-базе с выдуманными товарами · *Screenshots use a demo database with made-up products*</sub>
+
 ## Что сделано
 - **Каталог** с поиском по названию, фильтром по категории, сортировкой (по имени и цене в обе стороны) и пагинацией по 6 товаров
 - **Кэширование** списка категорий в `IMemoryCache` на 10 минут
